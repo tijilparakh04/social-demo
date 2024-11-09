@@ -1,24 +1,20 @@
+// src/pages/Home.jsx
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import './Home.css';
 
 const Home = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
-
-  const goToLogin = () => navigate('/login');
-  const goToRegister = () => navigate('/register');
 
   return (
-    <div>
-      <h1>Welcome to the Travel Social Media Platform</h1>
-      {user ? (
-        <p>Hello, {user.username}!</p>
-      ) : (
-        <p>Please log in or register.</p>
-      )}
-      <button onClick={goToLogin}>Login</button>
-      <button onClick={goToRegister}>Sign Up</button>
+    <div className="home">
+      <Navbar />
+      <div className="main-text">
+        <h1>Welcome to the Travel Social Media Platform</h1>
+        <p>Connect with travelers around the world.</p>
+        {user && <p>Hello, {user.username}!</p>}
+      </div>
     </div>
   );
 };

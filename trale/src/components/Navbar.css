@@ -1,0 +1,26 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5); /* Transparent background */
+  color: #00ff00; /* Neon green */
+  z-index: 100;
+}
+
+.navbar-buttons button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #00ff00; /* Neon green */
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.navbar-buttons button:hover {
+  background: #ff00ff; /* Neon pink */
+}

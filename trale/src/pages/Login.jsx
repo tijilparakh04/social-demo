@@ -1,46 +1,62 @@
 // src/pages/Login.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './LoginSignup.css';
 
-const Login = () => {
+const Login = ({ closePopup }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
+  const popupRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login({ username, password });
-      navigate('/profile'); // Redirect to UserProfile page
+      navigate('/dashboard'); // Redirect to Dashboard page
     } catch (error) {
       console.error('Login failed', error);
     }
+    closePopup();
   };
 
+  // Close popup if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        closePopup();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [closePopup]);
+
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username</label>
+    <div className="popup-overlay">
+      <div className="popup-content" ref={popupRef}>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </div>
-        <div>
-          <label>Password</label>
           <input
             type="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };

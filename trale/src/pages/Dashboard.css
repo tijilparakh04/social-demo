@@ -1,0 +1,66 @@
+/* src/pages/Dashboard.css */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+  }
+  
+  .sidebar h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .sidebar nav ul li a:hover {
+    color: #ff00ff; /* Neon pink */
+  }
+  
+  .sidebar button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .sidebar button:hover {
+    background: #ff4d4d;
+  }
+  
+  .feed {
+    margin-left: 260px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .feed h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+  }
+  
