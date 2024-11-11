@@ -1,0 +1,24 @@
+.share {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.share input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.share button {
+  padding: 10px 20px;
+  background-color: #00ff00;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+}
